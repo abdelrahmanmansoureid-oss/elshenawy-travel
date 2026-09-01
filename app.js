@@ -2,7 +2,7 @@
    Elshenawy Travel Agency - React 18 & Tailwind CSS Application (app.js)
    DOMINANT SIGNATURE COLOR: Deep Imperial Purple (#452578)
    Includes Official Makkah & Madinah Photo (makkah-madinah.jpg)
-   Includes Clean Segmented Capsule Language Toggle Switcher (عربي | EN - No Flag Icons)
+   Includes Clean Segmented Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop)
    ========================================================================== */
 
 const WHATSAPP_NUMBER = "201550549488";
@@ -307,23 +307,26 @@ function App() {
           e("a", { href: "#contact", onClick: () => setMobileOpen(false), className: "text-[#452578] hover:text-[#C59210] font-bold text-sm transition-colors" }, t.nav_contact)
         ),
         
-        /* Action Buttons: WhatsApp + Segmented Capsule Language Toggle Switcher (No Flags) */
+        /* Action Buttons: WhatsApp + Responsive Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop) */
         e("div", { className: "flex items-center gap-3" },
           e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-md transition-all" },
             e("i", { className: "fa-brands fa-whatsapp text-sm" }),
             e("span", { className: "hidden sm:inline" }, t.btn_header_wa)
           ),
 
-          /* CAPSULE LANGUAGE TOGGLE WITHOUT FLAGS */
+          /* RESPONSIVE CAPSULE LANGUAGE TOGGLE SWITCHER */
           e("button", {
             onClick: toggleLang,
             className: "lang-toggle-capsule p-1 rounded-full flex items-center gap-0.5 transition-all duration-300 cursor-pointer group select-none"
           },
             e("span", {
-              className: `px-3.5 py-1 rounded-full text-xs font-black transition-all duration-300 ${lang === 'ar' ? 'bg-[#452578] text-white shadow-md' : 'text-[#452578]/70 group-hover:text-[#452578]'}`
-            }, "عربي"),
+              className: `px-2.5 sm:px-3.5 py-1 rounded-full text-xs font-black transition-all duration-300 ${lang === 'ar' ? 'bg-[#452578] text-white shadow-md' : 'text-[#452578]/70 group-hover:text-[#452578]'}`
+            },
+              e("span", { className: "inline sm:hidden" }, "ع"),
+              e("span", { className: "hidden sm:inline" }, "عربي")
+            ),
             e("span", {
-              className: `px-3.5 py-1 rounded-full text-xs font-black transition-all duration-300 ${lang === 'en' ? 'bg-[#452578] text-white shadow-md' : 'text-[#452578]/70 group-hover:text-[#452578]'}`
+              className: `px-2.5 sm:px-3.5 py-1 rounded-full text-xs font-black transition-all duration-300 ${lang === 'en' ? 'bg-[#452578] text-white shadow-md' : 'text-[#452578]/70 group-hover:text-[#452578]'}`
             }, "EN")
           ),
 
@@ -593,7 +596,7 @@ function App() {
             ),
             e("div", { className: "mt-8 pt-6 border-t border-white/10 flex items-center justify-between" },
               e("span", { className: "text-xs text-gray-200 font-semibold" }, t.wa_direct_title),
-              e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg" }, "+201550549488")
+              e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] text-[#ffffff] text-xs font-bold px-5 py-2.5 rounded-full shadow-lg" }, "+201550549488")
             )
           ),
           e("div", { className: "bento-card-light p-10 border-2 border-[#452578]/15" },
