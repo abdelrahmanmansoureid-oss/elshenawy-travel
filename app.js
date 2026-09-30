@@ -1,11 +1,14 @@
 /* ==========================================================================
    Elshenawy Travel Agency - React 18 & Tailwind CSS Application (app.js)
    DOMINANT SIGNATURE COLOR: Deep Imperial Purple (#452578)
-   Includes Official Makkah & Madinah Photo (makkah-madinah.jpg)
+   Includes Official Phoenix Logo (logo.png)
+   Includes Official Social Links (Facebook & Instagram)
    Includes Clean Segmented Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop)
    ========================================================================== */
 
 const WHATSAPP_NUMBER = "201550549488";
+const FACEBOOK_URL = "https://www.facebook.com/share/19XThdbyuz/?mibextid=wwXIfr";
+const INSTAGRAM_URL = "https://www.instagram.com/elshennawy_travel?stkn=Z2gyeDdpcW5rcmU5";
 
 const translations = {
   ar: {
@@ -102,12 +105,13 @@ const translations = {
     contact_tag: "تواصل معنا",
     contact_title: "جاهزون لمساعدتك في أي وقت",
     contact_subtitle: "تواصل معنا مباشرة للاستفسار أو حجز رحلتك القادمة",
-    contact_info_title: "معلومات الاتصال",
+    contact_info_title: "معلومات الاتصال والسوشيال ميديا",
     contact_add_label: "العنوان الرئيسي:",
     contact_add_val: "جمهورية مصر العربية - القاهرة",
     contact_phone_label: "الهاتف / الواتساب:",
     contact_email_label: "البريد الإلكتروني:",
     contact_email_val: "info@elshenawy-travel.com",
+    contact_social_title: "تابعنا على منصات التواصل الاجتماعي:",
     wa_direct_title: "خدمة العملاء السريعة",
     wa_direct_desc: "راسلنا مباشرة على الواتساب للحصول على الرد الفوري",
 
@@ -217,12 +221,13 @@ const translations = {
     contact_tag: "Contact Us",
     contact_title: "Always Ready To Assist You",
     contact_subtitle: "Get in touch directly for quick booking assistance",
-    contact_info_title: "Contact Details",
+    contact_info_title: "Contact & Social Media",
     contact_add_label: "Main Address:",
     contact_add_val: "Cairo, Arab Republic of Egypt",
     contact_phone_label: "Phone / WhatsApp:",
     contact_email_label: "Email Address:",
     contact_email_val: "info@elshenawy-travel.com",
+    contact_social_title: "Follow Us On Social Media:",
     wa_direct_title: "Quick Customer Support",
     wa_direct_desc: "Message us directly on WhatsApp for immediate response",
 
@@ -289,11 +294,11 @@ function App() {
     e("div", { className: "ambient-glow-top-light" }),
     e("div", { className: "ambient-glow-bottom-light" }),
 
-    /* Header */
+    /* Header with New Phoenix Logo & Social Icons */
     e("header", { className: `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 py-3 shadow-md border-b border-[#452578]/15 backdrop-blur-xl' : 'bg-transparent py-6'}` },
       e("div", { className: "w-[90%] max-w-[1240px] mx-auto px-4 flex items-center justify-between" },
         e("a", { href: "#home", className: "flex items-center gap-3 group" },
-          e("img", { src: "logo.png", alt: "Elshenawy Logo", className: "w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-105" }),
+          e("img", { src: "logo.png", alt: "Elshenawy Tourism Logo", className: "w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-105 rounded-full shadow-sm" }),
           e("div", { className: "flex flex-col" },
             e("span", { className: "text-[#452578] text-xl font-extrabold tracking-tight" }, t.hero_title_1),
             e("span", { className: "text-[#C59210] text-xs font-bold tracking-wider" }, t.hero_slogan)
@@ -307,14 +312,26 @@ function App() {
           e("a", { href: "#contact", onClick: () => setMobileOpen(false), className: "text-[#452578] hover:text-[#C59210] font-bold text-sm transition-colors" }, t.nav_contact)
         ),
         
-        /* Action Buttons: WhatsApp + Responsive Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop) */
-        e("div", { className: "flex items-center gap-3" },
-          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-md transition-all" },
-            e("i", { className: "fa-brands fa-whatsapp text-sm" }),
-            e("span", { className: "hidden sm:inline" }, t.btn_header_wa)
+        /* Action Buttons: Social Icons (Facebook & Instagram) + WhatsApp + Language Toggle Switcher */
+        e("div", { className: "flex items-center gap-2.5" },
+          
+          /* Facebook Header Icon */
+          e("a", { href: FACEBOOK_URL, target: "_blank", title: "Facebook", className: "w-9 h-9 rounded-full bg-[#1877F2]/10 hover:bg-[#1877F2] text-[#1877F2] hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm border border-[#1877F2]/30" },
+            e("i", { className: "fa-brands fa-facebook-f text-sm" })
           ),
 
-          /* RESPONSIVE CAPSULE LANGUAGE TOGGLE SWITCHER */
+          /* Instagram Header Icon */
+          e("a", { href: INSTAGRAM_URL, target: "_blank", title: "Instagram", className: "w-9 h-9 rounded-full bg-[#E4405F]/10 hover:bg-[#E4405F] text-[#E4405F] hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm border border-[#E4405F]/30" },
+            e("i", { className: "fa-brands fa-instagram text-sm" })
+          ),
+
+          /* WhatsApp Button */
+          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] hover:bg-[#20bd5a] text-white px-3.5 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-md transition-all" },
+            e("i", { className: "fa-brands fa-whatsapp text-sm" }),
+            e("span", { className: "hidden md:inline" }, t.btn_header_wa)
+          ),
+
+          /* Responsive Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop) */
           e("button", {
             onClick: toggleLang,
             className: "lang-toggle-capsule p-1 rounded-full flex items-center gap-0.5 transition-all duration-300 cursor-pointer group select-none"
@@ -330,7 +347,7 @@ function App() {
             }, "EN")
           ),
 
-          e("button", { onClick: () => setMobileOpen(!mobileOpen), className: "md:hidden text-[#452578] text-2xl" },
+          e("button", { onClick: () => setMobileOpen(!mobileOpen), className: "md:hidden text-[#452578] text-2xl ml-1" },
             e("i", { className: `fa-solid ${mobileOpen ? 'fa-xmark' : 'fa-bars'}` })
           )
         )
@@ -576,7 +593,7 @@ function App() {
       )
     ),
 
-    /* CONTACT SECTION */
+    /* CONTACT SECTION WITH SOCIAL MEDIA BUTTONS */
     e("section", { className: "py-24 bg-[#FAF9FC]", id: "contact" },
       e("div", { className: "w-[90%] max-w-[1240px] mx-auto" },
         e("div", { className: "text-center max-w-2xl mx-auto mb-16" },
@@ -592,11 +609,26 @@ function App() {
                 e("div", { className: "flex items-center gap-4" }, e("i", { className: "fa-solid fa-location-dot text-[#C59210] text-lg" }), t.contact_add_val),
                 e("div", { className: "flex items-center gap-4" }, e("i", { className: "fa-brands fa-whatsapp text-[#C59210] text-lg" }), "+20 155 054 9488"),
                 e("div", { className: "flex items-center gap-4" }, e("i", { className: "fa-regular fa-envelope text-[#C59210] text-lg" }), t.contact_email_val)
+              ),
+
+              /* Dedicated Social Buttons Row */
+              e("div", { className: "mt-8 pt-6 border-t border-white/10" },
+                e("span", { className: "text-xs font-bold text-[#C59210] block mb-3" }, t.contact_social_title),
+                e("div", { className: "flex items-center gap-3" },
+                  e("a", { href: FACEBOOK_URL, target: "_blank", className: "bg-[#1877F2] hover:bg-[#1465cc] text-white px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-md transition-all" },
+                    e("i", { className: "fa-brands fa-facebook-f text-sm" }),
+                    e("span", null, "فيسبوك / Facebook")
+                  ),
+                  e("a", { href: INSTAGRAM_URL, target: "_blank", className: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-md transition-all" },
+                    e("i", { className: "fa-brands fa-instagram text-sm" }),
+                    e("span", null, "إنستغرام / Instagram")
+                  )
+                )
               )
             ),
             e("div", { className: "mt-8 pt-6 border-t border-white/10 flex items-center justify-between" },
               e("span", { className: "text-xs text-gray-200 font-semibold" }, t.wa_direct_title),
-              e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] text-[#ffffff] text-xs font-bold px-5 py-2.5 rounded-full shadow-lg" }, "+201550549488")
+              e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg" }, "+201550549488")
             )
           ),
           e("div", { className: "bento-card-light p-10 border-2 border-[#452578]/15" },
@@ -621,10 +653,15 @@ function App() {
       )
     ),
 
-    /* FOOTER */
+    /* FOOTER WITH NEW PHOENIX LOGO & SOCIAL LINKS */
     e("footer", { className: "bg-[#452578] text-white pt-16 pb-8 border-t border-[#C59210]/30" },
       e("div", { className: "w-[90%] max-w-[1240px] mx-auto flex flex-col items-center gap-4 text-center text-xs text-gray-200 font-semibold" },
-        e("img", { src: "logo.png", alt: "Elshenawy Logo Footer", className: "w-12 h-12 object-contain" }),
+        e("img", { src: "logo.png", alt: "Elshenawy Phoenix Logo", className: "w-16 h-16 object-contain rounded-full shadow-md" }),
+        e("div", { className: "flex items-center gap-4 my-2" },
+          e("a", { href: FACEBOOK_URL, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-facebook-f text-sm" })),
+          e("a", { href: INSTAGRAM_URL, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#E4405F] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-instagram text-sm" })),
+          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-whatsapp text-sm" }))
+        ),
         e("div", null, t.footer_rights)
       )
     ),
