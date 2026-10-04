@@ -1,7 +1,8 @@
 /* ==========================================================================
    Elshenawy Travel Agency - React 18 & Tailwind CSS Application (app.js)
    DOMINANT SIGNATURE COLOR: Deep Imperial Purple (#452578)
-   Includes Official Phoenix Logo (logo.png)
+   Includes New Clean Phoenix Emblem Logo (logo.png)
+   Includes Multi-Column Luxury Bento Footer Design
    Includes Official Social Links (Facebook & Instagram)
    Includes Clean Segmented Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop)
    ========================================================================== */
@@ -121,9 +122,10 @@ const translations = {
     form_msg: "تفاصيل الاستفسار أو الرحلة",
     form_submit: "إرسال عبر الواتساب",
 
-    footer_desc: "الشناوي للسياحة والرحلات - اسم له تاريخ. نقدم أفضل خدمات السفر، الحج والعمرة، ورحلات الترفيه الداخلية والدولية.",
+    footer_desc: "الشناوي للسياحة والرحلات - اسم له تاريخ. نقدم أفضل خدمات السفر، الحج والعمرة، ورحلات الترفيه الداخلية والدولية بأعلى معايير الرفاهية.",
     footer_quick_links: "روابط سريعة",
-    footer_services: "خدماتنا",
+    footer_services: "خدماتنا الحصرية",
+    footer_contact_title: "تواصل مباشر",
     footer_rights: "جميع الحقوق محفوظة © الشناوي للسياحة والرحلات 2026."
   },
 
@@ -237,9 +239,10 @@ const translations = {
     form_msg: "Inquiry Details",
     form_submit: "Send via WhatsApp",
 
-    footer_desc: "Elshenawy Travel Agency - A name with a history. Delivering top-tier travel planning, Hajj & Umrah, and luxury tours.",
+    footer_desc: "Elshenawy Travel Agency - A name with a history. Delivering top-tier travel planning, Hajj & Umrah, and luxury tours built with unmatched prestige.",
     footer_quick_links: "Quick Links",
     footer_services: "Our Services",
+    footer_contact_title: "Direct Contact",
     footer_rights: "All Rights Reserved © Elshenawy Travel 2026."
   }
 };
@@ -653,16 +656,86 @@ function App() {
       )
     ),
 
-    /* FOOTER WITH NEW PHOENIX LOGO & SOCIAL LINKS */
-    e("footer", { className: "bg-[#452578] text-white pt-16 pb-8 border-t border-[#C59210]/30" },
-      e("div", { className: "w-[90%] max-w-[1240px] mx-auto flex flex-col items-center gap-4 text-center text-xs text-gray-200 font-semibold" },
-        e("img", { src: "logo.png", alt: "Elshenawy Phoenix Logo", className: "w-16 h-16 object-contain rounded-full shadow-md" }),
-        e("div", { className: "flex items-center gap-4 my-2" },
-          e("a", { href: FACEBOOK_URL, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-facebook-f text-sm" })),
-          e("a", { href: INSTAGRAM_URL, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#E4405F] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-instagram text-sm" })),
-          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors" }, e("i", { className: "fa-brands fa-whatsapp text-sm" }))
+    /* NEW ULTRA-STYLISH LUXURY MULTI-COLUMN FOOTER */
+    e("footer", { className: "bg-[#361C60] text-white pt-20 pb-10 border-t-2 border-[#C59210]/40 relative overflow-hidden" },
+      /* Ambient Glow in Footer */
+      e("div", { className: "absolute -top-24 right-1/4 w-96 h-96 bg-[#452578] rounded-full blur-3xl opacity-40 pointer-events-none" }),
+      
+      e("div", { className: "w-[90%] max-w-[1240px] mx-auto relative z-10" },
+        
+        /* 4-Column Grid Layout */
+        e("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16" },
+          
+          /* Col 1: Brand & Slogan & Socials */
+          e("div", { className: "space-y-6" },
+            e("div", { className: "flex items-center gap-3.5" },
+              e("img", { src: "logo.png", alt: "Elshenawy Tourism Logo Footer", className: "w-16 h-16 object-contain rounded-full shadow-lg border border-[#C59210]/40 bg-white/10 p-1" }),
+              e("div", { className: "flex flex-col" },
+                e("span", { className: "text-[#F3C669] text-xl font-black tracking-tight" }, t.hero_title_1),
+                e("span", { className: "text-[#C59210] text-xs font-bold tracking-wider" }, t.hero_slogan)
+              )
+            ),
+            e("p", { className: "text-gray-300 text-xs leading-relaxed font-medium" }, t.footer_desc),
+            e("div", { className: "flex items-center gap-3 pt-2" },
+              e("a", { href: FACEBOOK_URL, target: "_blank", title: "Facebook", className: "w-10 h-10 rounded-full bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-110 border border-white/10" },
+                e("i", { className: "fa-brands fa-facebook-f text-sm" })
+              ),
+              e("a", { href: INSTAGRAM_URL, target: "_blank", title: "Instagram", className: "w-10 h-10 rounded-full bg-white/10 hover:bg-[#E4405F] text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-110 border border-white/10" },
+                e("i", { className: "fa-brands fa-instagram text-sm" })
+              ),
+              e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", title: "WhatsApp", className: "w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-110 border border-white/10" },
+                e("i", { className: "fa-brands fa-whatsapp text-base" })
+              )
+            )
+          ),
+
+          /* Col 2: Quick Links */
+          e("div", { className: "space-y-4" },
+            e("h4", { className: "text-[#F3C669] font-extrabold text-sm uppercase tracking-widest border-b border-[#C59210]/30 pb-3" }, t.footer_quick_links),
+            e("ul", { className: "space-y-3 text-xs font-semibold text-gray-200" },
+              e("li", null, e("a", { href: "#home", className: "hover:text-[#F3C669] transition-colors flex items-center gap-2 group" }, e("i", { className: "fa-solid fa-angle-left text-[#C59210] group-hover:-translate-x-1 transition-transform" }), t.nav_home)),
+              e("li", null, e("a", { href: "#about", className: "hover:text-[#F3C669] transition-colors flex items-center gap-2 group" }, e("i", { className: "fa-solid fa-angle-left text-[#C59210] group-hover:-translate-x-1 transition-transform" }), t.nav_about)),
+              e("li", null, e("a", { href: "#services", className: "hover:text-[#F3C669] transition-colors flex items-center gap-2 group" }, e("i", { className: "fa-solid fa-angle-left text-[#C59210] group-hover:-translate-x-1 transition-transform" }), t.nav_services)),
+              e("li", null, e("a", { href: "#packages", className: "hover:text-[#F3C669] transition-colors flex items-center gap-2 group" }, e("i", { className: "fa-solid fa-angle-left text-[#C59210] group-hover:-translate-x-1 transition-transform" }), t.nav_packages)),
+              e("li", null, e("a", { href: "#contact", className: "hover:text-[#F3C669] transition-colors flex items-center gap-2 group" }, e("i", { className: "fa-solid fa-angle-left text-[#C59210] group-hover:-translate-x-1 transition-transform" }), t.nav_contact))
+            )
+          ),
+
+          /* Col 3: Services List */
+          e("div", { className: "space-y-4" },
+            e("h4", { className: "text-[#F3C669] font-extrabold text-sm uppercase tracking-widest border-b border-[#C59210]/30 pb-3" }, t.footer_services),
+            e("ul", { className: "space-y-3 text-xs font-semibold text-gray-200" },
+              e("li", { className: "flex items-center gap-2" }, e("i", { className: "fa-solid fa-plane text-[#C59210] text-xs" }), t.ser_1_title),
+              e("li", { className: "flex items-center gap-2" }, e("i", { className: "fa-solid fa-kaaba text-[#C59210] text-xs" }), t.ser_2_title),
+              e("li", { className: "flex items-center gap-2" }, e("i", { className: "fa-solid fa-earth-americas text-[#C59210] text-xs" }), t.ser_3_title),
+              e("li", { className: "flex items-center gap-2" }, e("i", { className: "fa-solid fa-umbrella-beach text-[#C59210] text-xs" }), t.ser_4_title),
+              e("li", { className: "flex items-center gap-2" }, e("i", { className: "fa-solid fa-passport text-[#C59210] text-xs" }), t.ser_5_title)
+            )
+          ),
+
+          /* Col 4: Contact Info Card */
+          e("div", { className: "space-y-4 bg-[#452578]/50 p-6 rounded-2xl border border-[#C59210]/30 backdrop-blur-md" },
+            e("h4", { className: "text-[#F3C669] font-extrabold text-sm uppercase tracking-widest" }, t.footer_contact_title),
+            e("div", { className: "space-y-3 text-xs font-medium text-gray-200" },
+              e("div", { className: "flex items-center gap-3" }, e("i", { className: "fa-solid fa-location-dot text-[#C59210] text-base shrink-0" }), t.contact_add_val),
+              e("div", { className: "flex items-center gap-3" }, e("i", { className: "fa-brands fa-whatsapp text-[#25D366] text-base shrink-0" }), "+20 155 054 9488"),
+              e("div", { className: "flex items-center gap-3" }, e("i", { className: "fa-regular fa-envelope text-[#C59210] text-base shrink-0" }), t.contact_email_val)
+            ),
+            e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg transition-all mt-4" },
+              e("i", { className: "fa-brands fa-whatsapp text-sm" }),
+              e("span", null, t.btn_header_wa)
+            )
+          )
         ),
-        e("div", null, t.footer_rights)
+
+        /* Sub-footer Rights & Back to Top Strip */
+        e("div", { className: "pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-300 font-semibold" },
+          e("div", null, t.footer_rights),
+          e("a", { href: "#home", className: "text-[#F3C669] hover:text-white flex items-center gap-2 bg-[#452578] px-4 py-2 rounded-full border border-[#C59210]/30 shadow-md transition-all hover:scale-105" },
+            e("span", null, "إلى الأعلى / Top"),
+            e("i", { className: "fa-solid fa-arrow-up text-xs" })
+          )
+        )
       )
     ),
 
