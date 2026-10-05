@@ -3,7 +3,7 @@
    DOMINANT SIGNATURE COLOR: Deep Imperial Purple (#452578)
    Includes New Clean Phoenix Emblem Logo (logo.png)
    Includes Multi-Column Luxury Bento Footer Design
-   Includes Official Social Links (Facebook & Instagram)
+   Includes Official Social Links (Facebook & Instagram in Contact & Footer)
    Includes Clean Segmented Capsule Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop)
    ========================================================================== */
 
@@ -297,7 +297,7 @@ function App() {
     e("div", { className: "ambient-glow-top-light" }),
     e("div", { className: "ambient-glow-bottom-light" }),
 
-    /* Header with New Phoenix Logo & Social Icons */
+    /* Clean Navigation Header (No Social Icons in Navbar) */
     e("header", { className: `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 py-3 shadow-md border-b border-[#452578]/15 backdrop-blur-xl' : 'bg-transparent py-6'}` },
       e("div", { className: "w-[90%] max-w-[1240px] mx-auto px-4 flex items-center justify-between" },
         e("a", { href: "#home", className: "flex items-center gap-3 group" },
@@ -315,23 +315,13 @@ function App() {
           e("a", { href: "#contact", onClick: () => setMobileOpen(false), className: "text-[#452578] hover:text-[#C59210] font-bold text-sm transition-colors" }, t.nav_contact)
         ),
         
-        /* Action Buttons: Social Icons (Facebook & Instagram) + WhatsApp + Language Toggle Switcher */
-        e("div", { className: "flex items-center gap-2.5" },
+        /* Action Buttons: WhatsApp + Language Toggle Switcher (Clean Navbar) */
+        e("div", { className: "flex items-center gap-3" },
           
-          /* Facebook Header Icon */
-          e("a", { href: FACEBOOK_URL, target: "_blank", title: "Facebook", className: "w-9 h-9 rounded-full bg-[#1877F2]/10 hover:bg-[#1877F2] text-[#1877F2] hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm border border-[#1877F2]/30" },
-            e("i", { className: "fa-brands fa-facebook-f text-sm" })
-          ),
-
-          /* Instagram Header Icon */
-          e("a", { href: INSTAGRAM_URL, target: "_blank", title: "Instagram", className: "w-9 h-9 rounded-full bg-[#E4405F]/10 hover:bg-[#E4405F] text-[#E4405F] hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm border border-[#E4405F]/30" },
-            e("i", { className: "fa-brands fa-instagram text-sm" })
-          ),
-
           /* WhatsApp Button */
-          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] hover:bg-[#20bd5a] text-white px-3.5 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-md transition-all" },
+          e("a", { href: `https://wa.me/${WHATSAPP_NUMBER}`, target: "_blank", className: "bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-md transition-all" },
             e("i", { className: "fa-brands fa-whatsapp text-sm" }),
-            e("span", { className: "hidden md:inline" }, t.btn_header_wa)
+            e("span", { className: "hidden sm:inline" }, t.btn_header_wa)
           ),
 
           /* Responsive Language Toggle Switcher ('ع' on mobile | 'عربي' on desktop) */
@@ -656,7 +646,7 @@ function App() {
       )
     ),
 
-    /* NEW ULTRA-STYLISH LUXURY MULTI-COLUMN FOOTER */
+    /* MULTI-COLUMN LUXURY BENTO FOOTER (WITH SOCIAL MEDIA LINKS) */
     e("footer", { className: "bg-[#361C60] text-white pt-20 pb-10 border-t-2 border-[#C59210]/40 relative overflow-hidden" },
       /* Ambient Glow in Footer */
       e("div", { className: "absolute -top-24 right-1/4 w-96 h-96 bg-[#452578] rounded-full blur-3xl opacity-40 pointer-events-none" }),
